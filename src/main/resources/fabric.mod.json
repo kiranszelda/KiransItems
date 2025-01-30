@@ -8,7 +8,8 @@
 		"kiranszelda"
 	],
 	"contact": {
-		"homepage": "https://kiranszelda.github.io"
+		"homepage": "https://kiranszelda.github.io",
+		"sources": "https://github.com/kiranszelda/KiransItems"
 	},
 	"license": "GPL-3.0",
 	"icon": "assets/kirans-items/icon.png",
