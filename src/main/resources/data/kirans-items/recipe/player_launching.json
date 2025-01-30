@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:slime_block",
+    "minecraft:experience_bottle",
+    "minecraft:book"
+  ],
+  "result": {
+    "id": "minecraft:enchanted_book",
+    "count": 1,
+    "components": {
+      "minecraft:enchantments": {
+        "levels": {
+          "kirans-items:player_launching": 1
+        }
+      }
+    }
+  }
+}

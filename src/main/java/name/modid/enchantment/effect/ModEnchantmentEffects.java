@@ -1,6 +1,8 @@
 package name.modid.enchantment.effect;
 
 import com.mojang.serialization.MapCodec;
+import name.modid.enchantment.effect.launching.LaunchingEnchantmentEffect;
+import name.modid.enchantment.effect.launching.PlayerLaunchingEnchantmentEffect;
 import name.modid.enchantment.effect.midas.MidasFeetEnchantmentEffect;
 import name.modid.enchantment.effect.midas.MidasTouchEnchantmentEffect;
 import net.minecraft.enchantment.Enchantment;
@@ -21,6 +23,12 @@ public class ModEnchantmentEffects {
 
     public static final RegistryKey<Enchantment> MIDAS_FEET = of("midas_feet");
     public static MapCodec<MidasFeetEnchantmentEffect> MIDAS_FEET_EFFECT = registerLocation("midas_feet_effect", MidasFeetEnchantmentEffect.CODEC);
+
+    public static final RegistryKey<Enchantment> LAUNCHING = of("launching");
+    public static MapCodec<LaunchingEnchantmentEffect> LAUNCHING_EFFECT = registerEntity("launching_effect", LaunchingEnchantmentEffect.CODEC);
+
+    public static final RegistryKey<Enchantment> PLAYER_LAUNCHING = of("player_launching");
+    public static MapCodec<PlayerLaunchingEnchantmentEffect> PLAYER_LAUNCHING_EFFECT = registerEntity("player_launching_effect", PlayerLaunchingEnchantmentEffect.CODEC);
 
     private static RegistryKey<Enchantment> of(String path) {
         Identifier id = Identifier.of(KiransItems.MOD_ID, path);

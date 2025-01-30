@@ -3,7 +3,7 @@
 	"id": "kirans-items",
 	"version": "${version}",
 	"name": "Kiran's Items",
-	"description": "Random Items and Enchants",
+	"description": "Random Items and Enchants \n TODO: FIX ENCHANTABLE ITEMS",
 	"authors": [
 		"kiranszelda"
 	],

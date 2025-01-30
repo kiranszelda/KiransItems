@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:gold_ingot",
+    "minecraft:experience_bottle",
+    "minecraft:book"
+  ],
+  "result": {
+    "id": "minecraft:enchanted_book",
+    "count": 1,
+    "components": {
+      "minecraft:enchantments": {
+        "levels": {
+          "kirans-items:midas_feet": 1
+        }
+      }
+    }
+  }
+}
