@@ -29,6 +29,7 @@ public record MidasTouchEnchantmentEffect(EnchantmentLevelBasedValue amount) imp
     }*/
 
     private static boolean isServerTickOn = false;
+    private static boolean isServerTickCreated = false;
 
 
     @Override
@@ -37,27 +38,30 @@ public record MidasTouchEnchantmentEffect(EnchantmentLevelBasedValue amount) imp
         Vec3d[] prevRotation = {user.getRotationVec(1.0f)};
         isServerTickOn = true;
 
-        ServerTickEvents.START_WORLD_TICK.register(serverWorld -> {
-            if(isServerTickOn) {
-                Entity userEntity = serverWorld.getEntity(user.getUuid());
-                if (userEntity instanceof PlayerEntity player) {
-                    Vec3d currentRotation = player.getRotationVec(1.0f);
+        if(!isServerTickCreated) {
+            isServerTickCreated = true;
+            ServerTickEvents.START_WORLD_TICK.register(serverWorld -> {
+                if (isServerTickOn) {
+                    Entity userEntity = serverWorld.getEntity(user.getUuid());
+                    if (userEntity instanceof PlayerEntity player) {
+                        Vec3d currentRotation = player.getRotationVec(1.0f);
 
-                    if (!player.isAlive()) {
-                        isServerTickOn = false;
-                    }
+                        if (!player.isAlive()) {
+                            isServerTickOn = false;
+                        }
 
-                    if (!currentRotation.equals(prevRotation[0])) {
-                        prevRotation[0] = currentRotation;
+                        if (!currentRotation.equals(prevRotation[0])) {
+                            prevRotation[0] = currentRotation;
 
-                        BlockPos playerLookingBlock = BlockUtils.getBlockPlayerIsLookingAt((PlayerEntity) user, 75.0);
+                            BlockPos playerLookingBlock = BlockUtils.getBlockPlayerIsLookingAt((PlayerEntity) user, 75.0);
 
-                        if (playerLookingBlock != null && !world.getBlockState(playerLookingBlock).equals(goldBlockState))
-                            world.setBlockState(playerLookingBlock, goldBlockState);
+                            if (playerLookingBlock != null && !world.getBlockState(playerLookingBlock).equals(goldBlockState))
+                                world.setBlockState(playerLookingBlock, goldBlockState);
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
     }
 
     @Override
