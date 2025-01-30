@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "kirans-items",
+	"version": "${version}",
+	"name": "Kiran's Items",
+	"description": "Random Items and Enchants",
+	"authors": [
+		"kiranszelda"
+	],
+	"contact": {
+		"homepage": "https://kiranszelda.github.io"
+	},
+	"license": "GPL-3.0",
+	"icon": "assets/kirans-items/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"name.modid.KiransItems"
+		],
+		"client": [
+			"name.modid.KiransItemsClient"
+		],
+		"fabric-datagen": [
+			"name.modid.KiransItemsDataGenerator"
+		]
+	},
+	"mixins": [
+		"kirans-items.mixins.json",
+		{
+			"config": "kirans-items.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
