@@ -9,6 +9,7 @@
 	],
 	"contact": {
 		"homepage": "https://kiranszelda.github.io",
+		"issues": "https://github.com/kiranszelda/KiransItems/issues",
 		"sources": "https://github.com/kiranszelda/KiransItems"
 	},
 	"license": "GPL-3.0",
